@@ -11,13 +11,15 @@ function Navbar() {
 
     return (
         <>
-            <div className="first-nav py-3">
+            <div className="first-nav ">
                 <div className="container">
                     <div className="row align-items-center justify-content-between">
                         <div className="col-4 col-md-2">
                             <div className='d-flex'>
-                                <button className="btn btn-primary navbar-toggler d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navOffcanvas" aria-controls="navOffcanvas"><i className="fa-solid fa-bars fs-2 ms-3 text-white"></i></button>
-                                <img src="/images/Logo.png" alt="" className="img-fluid logo" />
+                                <button className="btn btn-primary navbar-toggler d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navOffcanvas" aria-controls="navOffcanvas"><i className="fa-solid fa-bars fs-2 ms-3" style={{ color: "#7b5309 "}}></i></button>
+                                <Link to="/">
+                                    <img src="/images/Logo.png" alt="" className="img-fluid logo" />
+                                </Link>
                             </div>
                         </div>
                         <div className="col-md-8 nav-links-col">
@@ -32,7 +34,7 @@ function Navbar() {
                                         تواصل معنا
                                     </li>
                                 </Link>
-                                <Link to="cases" className='nav-link'>
+                                <Link to="about-us" className='nav-link'>
                                     <li className="mx-3">
                                         من نحن
                                     </li>
@@ -40,11 +42,11 @@ function Navbar() {
                             </ul>
                         </div>
                         <div className="col-4 col-md-2 ">
-                            <div className="d-flex justify-content-end">
-                                <Link to="account" className="nav-link acc_link ps-2" href="#"> <img src="/images/acc-icon.png" alt="" className="acc_logo" /></Link>
+                            <div className="d-flex justify-content-end align-items-center">
+                                <Link to="account/login" className="nav-link acc_link d-flex align-items-center justify-content-center" href="#"> <i className="fa-regular fa-user acc_logo fs-3" style={{ color: "#2b373d" }}></i></Link>
                                 <Link to="cart">
                                     <div className='position-relative'>
-                                        <i className="bi bi-cart3 cart_logo"></i>
+                                        <img src="/images/cart.png" alt="" className="img-fluid cart_logo" />
                                         <span className="position-absolute badge rounded-pill">
                                             {cartItemsLength}
                                         </span>
@@ -57,63 +59,20 @@ function Navbar() {
             </div>
             <div className="second-nav py-3">
                 <div className="container">
-                    <ul className='d-flex justify-content-center m-0 p-0'>
-                        <li className="mx-4">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                زكاة
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li className="mx-4">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                صدقات
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li className="mx-4">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                كفارات
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li className="mx-4">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                اضاحى
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li className="mx-4">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                تبرع بالدم
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <div className='d-flex justify-content-center m-0 p-0'>
+                        <Link to="zakat" className="category-link mx-4">
+                            دفع الزكاة
+                        </Link>
+                        <Link to="donations" className='category-link mx-4'>
+                            قنوات التبرع
+                        </Link>
+                        <Link to="used" className="category-link mx-4">
+                            تبرع بالمستعمل
+                        </Link>
+                        <Link to="report-case" className="category-link mx-4">
+                            ابلاغ عن حالة
+                        </Link>
+                    </div>
                 </div>
             </div>
             <NavOffcanvas />

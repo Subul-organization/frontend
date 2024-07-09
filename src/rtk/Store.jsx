@@ -1,14 +1,28 @@
 // store.js
 import { configureStore } from "@reduxjs/toolkit";
-import casesReducer from "./features/CasesSlice";
-import userAuthReducer from "./features/userAuthSlice";
+import userAuthReducer from "./features/user/userAuthSlice";
 import cartReducer from "./features/CartSlice";
+import userProfileReducer from "./features/user/userProfileSlice";
+import charityAuthReducer from "./features/charity/charityAuthSlice";
+import charityProfileReducer from "./features/charity/charityProfileSlice";
+import charityCaseReducer from "./features/charity/charityCaseSlice";
+import adminReducer from "./features/user/adminSlice";
+import UsedItemSlice from "./features/UsedItemSlice";
+import CasesSlice from "./features/CasesSlice";
+import chatReducer from "./features/chatSlice";
 
 const Store = configureStore({
   reducer: {
-    cases: casesReducer,
     userAuth: userAuthReducer,
+    userProfile: userProfileReducer,
+    charityAuth: charityAuthReducer,
+    charityProfile: charityProfileReducer,
+    charityCase: charityCaseReducer,
     casesCart: cartReducer,
+    admin: adminReducer,
+    usedItems: UsedItemSlice,
+    cases: CasesSlice,
+    chat: chatReducer,
   },
 });
 

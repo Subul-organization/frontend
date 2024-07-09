@@ -1,34 +1,156 @@
-/* start Campaigns */
-.Campaigns {
-    background-color: var(--main-color);
-    color: white;
+.home-page .donation_opportunities .sec-title,
+.home-page .Campaigns .sec-title,
+.home-page .cases .sec-title {
+    font-family: "Tajawal" , sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 67.2px;
+    text-align: right;
+    position: relative;
+    margin-bottom: 80px;
 }
-.Campaigns h1 {
+.home-page .donation_opportunities .sec-title::after,
+.home-page .Campaigns .sec-title::after,
+.home-page .cases .sec-title::after {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    border-radius: 50%;
+    background-image: linear-gradient(150.19deg, #DFD4C0 -8.79%, rgba(255, 255, 255, 0) 117.88%);
+}
+.home-page .donation_opportunities .sec-title,
+.home-page .Campaigns .sec-title,
+.home-page .cases .sec-title {
+    width: fit-content;
+}
+/* start Campaigns */
+.home-page .Campaigns {
+    margin-top: 90px;
+}
+.home-page .Campaigns p::after {
+    top: 5px;
+    right: 160px;
+}
+.home-page .Campaigns .CampaignCard {
+    width: 47%;
+}
+.home-page .Campaigns .CampaignCard:first-child {
+    margin-top: 60px;
+}
+.home-page .CampaignCard {
+    height: fit-content;
+}
+.home-page .Campaigns .content {
+    font-family: "Tajawal" , sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+.home-page .Campaigns .more-btn {
+    color: white;
+    border: 1px solid #91683A;
+    background-color: #91683A;
+    width: 150px;
+}
+.home-page .Campaigns h1 {
     font-size: 60px;
 }
 /* end Campaigns */
 
 /* start donation opportunities */
-.donation_opportunities {
-    background-image: var(--gradient-color);
-    color: white;
-}
-.donation_opportunities h1 {
-    font-size: 60px;
+
+.home-page .donation_opportunities p::after {
+    top: 6px;
+    left: -15px;
 }
 /* end donation opportunities */
-/* start urgent cases */
-.urgent-cases {
-    background-color: var(--main-color);
+/* start  cases */
+
+.home-page .cases p::after {
+    top: 10px;
+    left: -15px;
+}
+@media (max-width: 768px) {
+    .home-page .cases .sec-title {
+        font-size: 40px;
+    }
+}
+@media (max-width: 480px) {
+    .home-page .cases .sec-title {
+        font-size: 30px;
+    }
+}
+.home-page .cases .more-btn {
+    color: #91683A;
+    border: 1px solid #91683A;
+    border-radius: 35px;
+}
+.home-page .cases .swiper-pagination-bullet-active {
+    background-color: #91683A;
+}
+.home-page .cases .more-btn:hover {
+    background-color: #91683A;
     color: white;
 }
-.urgent-cases h1 {
-    font-size: 60px;
+/* end  cases */
+
+/* start report case section*/
+.home-page .report-case {
+    position: relative;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 23px 75px 171px 0px #2524241A;
 }
-/* end urgent cases */
-/* start associations */
-.associations {
-    background-image: var(--gradient-color);
-    color: white;
+.home-page .report-case::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 10px);
+    border-radius: 24px;
+    z-index: -1;
+    background: linear-gradient(#EDDCC8, white);
 }
-/* end associations */
+.home-page .report-case .report-btn {
+    background-color: #EDDCC8;
+    color: #91683A;
+    border-radius: 35px;
+}
+/* end report case section*/
+/* start used section*/
+.home-page .used {
+    background-color: #EDDCC8;
+    box-shadow: 23px 75px 171px 0px #2524241A;
+    position: relative;
+    border-radius: 24px;
+}
+.home-page .used::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 10px);
+    border-radius: 24px;
+    z-index: -1;
+    background-color: #EDDCC8;
+}
+.home-page .used .donate-btn {
+    background-color: white;
+    color: #91683A;
+    border-radius: 35px;
+    width: 172px;
+}
+@media (max-width: 768px) {
+    .home-page .used {
+        text-align: center;
+        flex-direction: column;
+    }
+    .home-page .used .content {
+        width: 100% !important;
+        margin-bottom: 25px;
+    }
+}
+/* end used section*/

@@ -1,3 +1,0 @@
-// fetchUserProfile
-// updateUserProfile
-// changePassword

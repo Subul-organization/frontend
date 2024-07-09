@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -5,13 +8,21 @@
 }
 :root {
   --main-color: #121a22;
-  --secondary-color: #94B94B;
-  --third-color: #2C3E50;
+  --secondary-color: #94b94b;
+  --third-color: #2c3e50;
   --forth-color: #a1cefa;
-  --gradient-color: linear-gradient(#1F2C39, #202D3AFE, #2C3E50);
+  --gradient-color: linear-gradient(#1f2c39, #202d3afe, #2c3e50);
+
+  --main-dashboard-color: #91683a;
+  --secondary-dashboard-color: #c8c8c8;
+  --gradient-selection: linear-gradient(
+    270deg,
+    #ffffff 6.81%,
+    rgba(255, 255, 255, 0) 112.34%
+  );
 }
 body {
-  font-family: 'Cairo', sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 a {
   text-decoration: none;
@@ -27,10 +38,41 @@ a {
   gap: 20px;
 }
 .loading-screen {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--main-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+}
+
+/* react js popup */
+[data-popup="modal"].popup-overlay {
+  background: rgba(18, 18, 18, 0.56);
+}
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+.popup-content {
+  animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
+.PhotoView-Portal {
+  direction: ltr;
+}
+/*! it is important to reset it ffffffffffffffffffffffffffffff */
+.PhotoView-Portal .PhotoView__PhotoWrap {
+  right: unset !important;
 }
