@@ -1,3 +1,5 @@
+import React from "react";
+
 const cloudinaryBaseUrl =
   "https://res.cloudinary.com/ddvetozyq/image/upload/v1715928273";
 const subDomains = {
@@ -33,10 +35,34 @@ export function cloudinaryUrl(subDomain) {
 }
 
 export function prepareChatMessages(messages, receiverId) {
-  return messages.map((messageObj) => ({
-    ...messageObj,
-    text: messageObj.message,
-    position: messageObj.receiverId === receiverId ? "right" : "left",
-    type: "text",
-  }));
+  return messages.map(function (messageObj) {
+    const span = document.createElement("span");
+    console.log(span);
+    span.innerHTML = `${messageObj.message.replace(/\n/g, "<br>")}`;
+    return {
+      ...messageObj,
+      text: span,
+      position: messageObj.senderId === receiverId ? "left" : "right",
+      type: "text",
+    };
+  });
+}
+
+/**
+ *
+ * @param {string} dateString
+ * @returns current formated date
+ * if no date is passed the current date is used
+ */
+export function getFormattedDate(dateString = new Date()) {
+  const date = new Date(dateString);
+
+  // Extract the day, month, and year from the Date object
+  const day = String(date.getDate()).padStart(2, "0"); // Ensure two digits
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based, so add 1
+  const year = date.getFullYear();
+
+  // Format the date as day/month/year
+  const formattedDate = `${day}/${month}/${year}`;
+  return formattedDate;
 }

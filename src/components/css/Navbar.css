@@ -23,7 +23,7 @@ ul {
     color: #a1cefa;
 }
 .logo {
-    width: 101px;
+    width: 85px;
 }
 .acc_link {
     background-image: linear-gradient(#C7AB77 , white);
@@ -36,7 +36,8 @@ ul {
     margin-right: 15px;
 }
 .badge {
-    right: 5px;
+    right: 25px;
+    top: -5px;
     background-color: #C7AB77;
 }
 @media (max-width: 768px) {

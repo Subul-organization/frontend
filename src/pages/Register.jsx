@@ -22,12 +22,17 @@ import RegisterUser from "../components/RegisterUser";
 import RegisterCharity from "../components/RegisterCharity";
 
 function Register() {
-  const { loginStatus, error, registerStatus, user } = useSelector(
+  const { error, registerStatus: registerUserStatus, user } = useSelector(
     (store) => store.userAuth
   );
+
+  const {registerStatus: registerCharityStatus,  error: errorCharity, charity } = useSelector(store => store.charityAuth)
+  
+  console.log('user' , registerUserStatus)
+  console.log('charity' , registerCharityStatus)
   const navigate = useNavigate();
-  if (registerStatus === "finished") {
-    navigate("/account/login");
+  if (registerUserStatus === "finished" || registerCharityStatus === "finished") {
+    return navigate("/activateAccount");
   }
   const [role, setRole] = useState("");
 
@@ -58,6 +63,7 @@ function Register() {
       registeredNumber: "123",
       establishedDate: "2001-01-01",
     },
+    currency: "AED"
   };
 
   let validationSchema = yup.object().shape({
@@ -121,7 +127,9 @@ function Register() {
         name: values.name,
         gender: values.gender,
         phone: values.phone,
-        location: values.location,
+        userLocation: { 
+          governorate: values.location
+        },
       };
       console.log(RegisterData);
       toast.promise(dispatch(registerUser(RegisterData)), {
@@ -135,11 +143,15 @@ function Register() {
         ...RegisterData,
         name: values.organizationName,
         image: values.organizationImage,
-        contactInfo: values.contactInfo,
-        charityInfo: values.charityInfo,
         description: values.organizationDescription,
         phone: values.phone,
-        location: values.location,
+        "charityLocation[governorate]": values.location,
+        currency: "AED",
+        "charityInfo[establishedDate]": "2001-01-01",
+        "charityInfo[registeredNumber]": "123456789",
+        "contactInfo[email]": "qyj9M@example.com",
+        "contactInfo[phone]": "01554138144",
+        "contactInfo[websiteUrl]": "https://www.example.com",
       };
       console.log('values: ',values)
       console.log(RegisterData);
@@ -151,6 +163,7 @@ function Register() {
       
     }
   };
+
 
   return (
     <div className="register-page py-5">
@@ -170,7 +183,7 @@ function Register() {
               <Formik
                 initialValues={initialValues}
                 onSubmit={submitHandler}
-                validationSchema={validationSchema}
+                // validationSchema={validationSchema}
               >
                 {({ values, errors, touched, setFieldValue }) => {
                   return (
@@ -301,7 +314,7 @@ function Register() {
                           <Field
                             as="select"
                             id="governorate"
-                            name="location[governorate]"
+                            name="location"
                             className={`form-select ${touched.location?.governorate &&
                               errors.location?.governorate &&
                               "is-invalid"
