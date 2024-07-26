@@ -3,16 +3,14 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Outlet, useNavigate } from 'react-router-dom'
 
-function ProtectedRoute() {
+function RestrictAdmin() {
+
 
     const navigate = useNavigate()
 
     const {userProfile} = useSelector((state) => state.userProfile)
-    const {charityProfile} = useSelector((state) => state.charityProfile)
-    console.log(userProfile)
-    
-    if(Object.keys(userProfile).length === 0 && Object.keys(charityProfile).length === 0) return navigate('/account/login')
 
+    if(! userProfile.isAdmin) return navigate('/')
     return (
         <>
             <Outlet />
@@ -20,4 +18,4 @@ function ProtectedRoute() {
     )
 }
 
-export default ProtectedRoute
+export default RestrictAdmin
